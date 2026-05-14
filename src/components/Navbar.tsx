@@ -36,7 +36,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 group">
           <img 
-            src="https://servirov.cl/wp-content/uploads/elementor/thumbs/25-x-50-logo-png-1-q8qnepaa5kz9hhhg6ty16h9907wqgbp92dpyzdtjb4.png" 
+            src="/src/logo.png" 
             alt="ServiRov Logo" 
             className="h-12 w-auto group-hover:scale-105 transition-transform"
           />

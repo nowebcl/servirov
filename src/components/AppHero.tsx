@@ -25,7 +25,7 @@ export function AppHero() {
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="https://servirov.cl/wp-content/uploads/elementor/thumbs/25-x-50-logo-png-1-q8qnepaa5kz9hhhg6ty16h9907wqgbp92dpyzdtjb4.png" 
+                src="/src/logo.png" 
                 alt="Logo" 
                 className="h-8 w-auto brightness-0 invert opacity-80"
               />

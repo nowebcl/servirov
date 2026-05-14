@@ -15,7 +15,7 @@ export function Footer() {
           <div className="col-span-1">
             <Link href="/" className="inline-block mb-6">
               <img 
-                src="https://servirov.cl/wp-content/uploads/elementor/thumbs/25-x-50-logo-png-1-q8qnepaa5kz9hhhg6ty16h9907wqgbp92dpyzdtjb4.png" 
+                src="/src/logo.png" 
                 alt="Logo" 
                 className="h-8 w-auto opacity-90"
               />
