@@ -10,6 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ServiRov | Soluciones Submarinas y Robótica Avanzada",
   description: "Especialistas en operaciones con ROV y buceo profesional para la industria acuícola. Precisión, seguridad y eficiencia en cada inmersión.",
+  icons: {
+    icon: "https://servirov.cl/wp-content/uploads/elementor/thumbs/25-x-50-logo-png-1-q8qnepaa5kz9hhhg6ty16h9907wqgbp92dpyzdtjb4.png",
+  }
 };
 
 export default function RootLayout({
