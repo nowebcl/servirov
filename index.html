@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiROV SpA — Robótica Submarina y Servicios Acuícolas</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="ServiROV Servicios Acuícolas SpA: Robótica submarina con ROVs, extracción de mortalidad, inspección de redes, certificación de fondeos y taller técnico especializado en Hornopirén y Puerto Montt desde 2018.">
+    <meta name="keywords" content="servirov, serviROV spa, robotica submarina, acuicultura chile, inspeccion de redes, fondeos, extraccion mortalidad, salmonicultura, hornopiren, puerto montt, camanchaca, mowi, salmones aysen, deep trekker, bluerov">
+    <meta name="author" content="ServiROV Servicios Acuícolas SpA">
+    
+    <!-- OpenGraph Meta tags -->
+    <meta property="og:title" content="ServiROV SpA — Robótica Submarina y Servicios Acuícolas">
+    <meta property="og:description" content="Operaciones submarinas con ROVs de alta tecnología, extracción de mortalidad, inspecciones y taller técnico especializado. Continuidad operacional garantizada desde 2018.">
+    <meta property="og:image" content="assets/drone-center.jpg">
+    <meta property="og:url" content="https://servirov.cl/">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon & Mobile App Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#020813">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ServiROV">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Canvas para el fondo interactivo de partículas de agua -->
+    <canvas id="water-backdrop"></canvas>
+
+    <!-- Header flotante premium -->
+    <header id="main-header">
+        <div class="header-container">
+            <a href="#inicio" class="logo-link" id="logo-header">
+                <img src="assets/logo-servirov-white.png" alt="ServiROV Servicios Acuícolas" class="logo-img">
+            </a>
+            
+            <nav id="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link active" data-tab="inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link" data-tab="servicios"><i class="fa-solid fa-anchor"></i> Servicios</a></li>
+                    <li><a href="#clientes" class="nav-link" data-tab="clientes"><i class="fa-solid fa-handshake"></i> Clientes</a></li>
+                    <li><a href="#nosotros" class="nav-link" data-tab="nosotros"><i class="fa-solid fa-users"></i> Nosotros</a></li>
+                    <li><a href="#contacto" class="nav-link" data-tab="contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+                    <li class="mobile-only-item"><a href="https://subvision.servirov.cl/" target="_blank" rel="noopener noreferrer" class="nav-link nav-btn-mobile-accent"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar a la app</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://subvision.servirov.cl/" target="_blank" rel="noopener noreferrer" class="btn-call-header" id="btn-header-call">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Entrar a la app</span>
+                </a>
+                <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Abrir Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal SPA -->
+    <main id="spa-container">
+
+        <!-- ================= SECTION INICIO ================= -->
+        <section id="inicio" class="spa-section active">
+            <!-- Hero Slider -->
+            <div class="hero-slider">
+                <div class="slider-wrapper">
+                    <div class="slide active" style="background-image: url('assets/drone-center.jpg');"></div>
+                    <div class="slide" style="background-image: url('assets/ocean-aerial.jpg');"></div>
+                    <div class="slide" style="background-image: url('assets/rov-operator-back.jpg');"></div>
+                </div>
+                
+                <div class="hero-overlay"></div>
+                
+                <div class="hero-content">
+                    <div class="hero-badge animate-up">
+                        <i class="fa-solid fa-shield-halved"></i> Continuidad Operacional Acuícola desde 2018
+                    </div>
+                    <h1 class="hero-title animate-up">
+                        <span class="hero-brand">ServiROV SpA</span>
+                        <span class="hero-tagline">Robótica Submarina & Servicios Acuícolas</span>
+                    </h1>
+                    <p class="hero-subtitle animate-up delay-1">Brindamos servicios de excelencia en robótica submarina con vehículos operados remotamente (ROV), extracción de mortalidad, inspección técnica y soporte especializado para la industria salmonera en el sur de Chile.</p>
+                    <div class="hero-buttons animate-up delay-2">
+                        <a href="#contacto" class="btn-primary hero-btn" id="hero-btn-contact"><i class="fa-solid fa-paper-plane"></i> Cotizar Servicio</a>
+                        <a href="#servicios" class="btn-secondary hero-btn" id="hero-btn-services"><i class="fa-solid fa-anchor"></i> Ver Servicios</a>
+                        <a href="https://wa.me/56996299010" target="_blank" rel="noopener noreferrer" class="btn-whatsapp hero-btn" id="hero-btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                    <div class="hero-highlights animate-up delay-2">
+                        <span class="hero-highlight-item"><i class="fa-solid fa-microchip"></i> Flota Deep Trekker & BlueROV</span>
+                        <span class="hero-highlight-item"><i class="fa-solid fa-users-gear"></i> +25 Especialistas en Robótica</span>
+                        <span class="hero-highlight-item"><i class="fa-solid fa-location-dot"></i> Hornopirén & Puerto Montt</span>
+                    </div>
+                </div>
+
+                <div class="slider-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+
+            <!-- Quiénes Somos & Métricas Reales 2026 (Slide 2) -->
+            <div class="container section-padding">
+                <div class="grid-2">
+                    <div class="about-text-column" id="about-intro">
+                        <span class="section-tag"><i class="fa-solid fa-circle-info"></i> Quienes Somos</span>
+                        <h2 class="section-title">ServiROV Servicios Acuícolas SpA</h2>
+                        <p class="section-desc">Somos una empresa de servicios complementarios para la salmonicultura, con operaciones continuas en diversos centros de cultivo desde el año 2018. Nuestra principal función es brindar <strong>servicios de excelencia en robótica submarina con vehículos operados remotamente (ROV)</strong>, asegurando la continuidad de las operaciones y la protección del activo biológico.</p>
+                        
+                        <!-- Mini Grid Contadores Oficiales (Slide 2) -->
+                        <div class="counters-grid">
+                            <div class="counter-card" id="card-counter-specialists">
+                                <div class="counter-icon-wrap">
+                                    <i class="fa-solid fa-users-gear" style="font-size: 24px; color: var(--accent-primary);"></i>
+                                </div>
+                                <div class="counter-num-wrap">
+                                    <span class="counter-number" data-target="25">0</span><span class="counter-plus">+</span>
+                                </div>
+                                <p class="counter-label text-12">Trabajadores Especializados en Robótica</p>
+                            </div>
+                            
+                            <div class="counter-card" id="card-counter-cycles">
+                                <div class="counter-icon-wrap">
+                                    <i class="fa-solid fa-arrows-spin" style="font-size: 24px; color: var(--accent-secondary);"></i>
+                                </div>
+                                <div class="counter-num-wrap">
+                                    <span class="counter-number" data-target="32">0</span><span class="counter-plus">+</span>
+                                </div>
+                                <p class="counter-label text-12">Ciclos Productivos Acuícolas Realizados</p>
+                            </div>
+
+                            <div class="counter-card" id="card-counter-trainings">
+                                <div class="counter-icon-wrap">
+                                    <i class="fa-solid fa-graduation-cap" style="font-size: 24px; color: var(--text-accent);"></i>
+                                </div>
+                                <div class="counter-num-wrap">
+                                    <span class="counter-number" data-target="10">0</span><span class="counter-plus">+</span>
+                                </div>
+                                <p class="counter-label text-12">Talleres de Perfeccionamiento a Usuarios</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image-column" id="about-image-sub">
+                        <div class="image-glow-wrapper">
+                            <img src="assets/rov-operator-front.jpg" alt="Operador ROV Submarino ServiROV" class="sub-hero-image img-responsive">
+                            <div class="floating-badge">
+                                <i class="fa-solid fa-microchip"></i>
+                                <span>Flota Deep Trekker & BlueROV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Puntos Críticos y Factores de Éxito (Slide 8) -->
+            <div class="dark-banner section-padding" style="background: linear-gradient(180deg, rgba(2, 8, 19, 0.95) 0%, rgba(5, 16, 33, 0.98) 100%);">
+                <div class="container">
+                    <div class="text-center max-w-700 margin-auto-bottom-50">
+                        <span class="section-tag"><i class="fa-solid fa-crosshairs"></i> Factores Críticos</span>
+                        <h2 class="section-title">Puntos Críticos de la Operación en Agua</h2>
+                        <p class="section-desc">Sabemos lo que está en juego en cada centro de cultivo. Nuestra capacidad técnica está calibrada para proteger la continuidad de faena y responder de forma inmediata.</p>
+                    </div>
+
+                    <div class="points-critical-grid">
+                        <!-- Punto 1: Tiempo de Reparación / Fallas de Servicio -->
+                        <div class="critical-card">
+                            <div class="critical-icon-wrap">
+                                <i class="fa-solid fa-stopwatch"></i>
+                            </div>
+                            <span class="critical-badge-pill">Cero Días Perdidos</span>
+                            <h3>Tiempo de Respuesta & Reparación</h3>
+                            <p>Dadas las condiciones de la industria salmonera, el tiempo de respuesta es clave para la continuidad de la operación en los centros de cultivo y no provocar días perdidos ni retrasos en los ciclos productivos.</p>
+                        </div>
+
+                        <!-- Punto 2: Costos HH y Valor -->
+                        <div class="critical-card">
+                            <div class="critical-icon-wrap">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <span class="critical-badge-pill">Optimización de Recursos</span>
+                            <h3>Costos HH y Equilibrio de Valor</h3>
+                            <p>El control y la gestión de los costos es fundamental para cualquier empresa. Con nuestras tarifas y rendimientos ayudamos a mantener un equilibrio perfecto entre calidad técnica superior y precio competitivo.</p>
+                        </div>
+
+                        <!-- Punto 3: Primera Respuesta ante Emergencias -->
+                        <div class="critical-card">
+                            <div class="critical-icon-wrap">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <span class="critical-badge-pill">Tecnología Grabber</span>
+                            <h3>Primera Respuesta ante Emergencias</h3>
+                            <p>En ServiROV SpA brindamos un servicio continuo y confiable, posicionándonos como primera respuesta ante emergencias. Contamos con tecnología Grabber para la reparación ágil de redes, asegurando rapidez y continuidad operativa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clientes y Alianzas de la Presentación (Slide 4) -->
+            <div class="container section-padding">
+                <div class="client-quote-box">
+                    <p class="client-quote-text">“Porque sabemos lo importante que es contar con un excelente soporte técnico, nuestros equipos están capacitados para contribuir a la cadena de valor de nuestros clientes.”</p>
+                    <span class="client-quote-author">Compromiso y Excelencia — ServiROV SpA</span>
+                </div>
+
+                <div class="text-center max-w-700 margin-auto-bottom-50">
+                    <span class="section-tag"><i class="fa-solid fa-star"></i> Alianzas Estratégicas</span>
+                    <h2 class="section-title">Nuestros Clientes</h2>
+                    <p class="section-desc">Grandes empresas productoras acuícolas e instituciones confían en el rigor técnico de nuestras operaciones submarinas.</p>
+                </div>
+
+                <!-- Logos oficiales extraídos de la presentación -->
+                <div class="client-logos-grid">
+                    <div class="client-logo-card">
+                        <img src="assets/client-camanchaca.jpg" alt="Salmones Camanchaca" title="Salmones Camanchaca">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-mowi.png" alt="MOWI" title="MOWI">
+                    </div>
+                    <div class="client-logo-card dark-card">
+                        <img src="assets/client-salmones-aysen.jpg" alt="Salmones Aysén" title="Salmones Aysén">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-marine-farm.jpg" alt="Marine Farm" title="Marine Farm">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-steen-hansen.png" alt="Steen-Hansen" title="Steen-Hansen">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-purranque.png" alt="Municipalidad de Purranque" title="Municipalidad de Purranque">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Operacional y Acceso a Recursos (Slide 10) -->
+            <div class="dark-banner section-padding">
+                <div class="container">
+                    <div class="grid-2 items-center">
+                        <div class="video-container-column" id="experience-video">
+                            <div class="video-wrapper-glass">
+                                <video id="ops-video" src="https://servirov.cl/wp-content/uploads/2023/06/WhatsApp-Video-2023-06-28-at-1.05.04-PM.mp4" poster="assets/drone-center.jpg" preload="metadata" muted playsinline></video>
+                                <button class="video-play-btn" id="play-pause-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                                <div class="video-controls-custom">
+                                    <span class="video-time" id="video-time-display">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-text-column" id="experience-intro">
+                            <span class="section-tag"><i class="fa-solid fa-video"></i> Operaciones en Terreno</span>
+                            <h2 class="section-title">Tecnología Robótica en Aguas de la Patagonia</h2>
+                            <p class="section-desc">Visualiza nuestras operaciones de inspección, extracción y maniobras subacuáticas con vehículos ROV en centros de cultivo en Chaitén, Hornopirén, Chiloé y Puerto Montt.</p>
+                            
+                            <div class="media-actions-bar">
+                                <a href="https://drive.google.com/drive/folders/179WVlxh1z3godj0Ebb6j7oyqIke-4LV5?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-media-action btn-drive">
+                                    <i class="fa-brands fa-google-drive"></i> Ver Carpeta de Videos en Terreno
+                                </a>
+                                <a href="https://www.salmonexpert.cl/acuicola-chile-emprendimiento/boom-de-los-rovs-acuicolas-incentiva-el-emprendimiento-regional/1187825" target="_blank" rel="noopener noreferrer" class="btn-media-action btn-press">
+                                    <i class="fa-solid fa-newspaper"></i> Leer Reportaje en SalmonExpert
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION SERVICIOS ================= -->
+        <section id="servicios" class="spa-section">
+            <div class="services-hero-banner" style="background-image: linear-gradient(rgba(2, 8, 19, 0.88), rgba(2, 8, 19, 0.95)), url('assets/drone-center.jpg');">
+                <div class="container text-center">
+                    <span class="section-tag"><i class="fa-solid fa-anchor"></i> Catálogo Completo</span>
+                    <h1 class="page-title">Nuestros Servicios</h1>
+                    <p class="service-ref-subtitle"><small><em>*imágenes de referencia*</em></small></p>
+                    <p class="page-subtitle max-w-600 margin-auto">Soluciones integrales de robótica submarina, servicios aplicados a centros de cultivo y taller técnico multimarca.</p>
+                </div>
+            </div>
+
+            <div class="container section-padding">
+
+                <!-- GRUPO 1: NUESTROS SERVICIOS GENERALES (Slide 5) -->
+                <div class="service-category-block">
+                    <div class="service-category-header">
+                        <div class="service-category-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <h2 class="service-category-title">Nuestros Servicios <span>Generales</span></h2>
+                    </div>
+
+                    <div class="grid-3 card-group-services">
+                        <!-- 1. Robótica Submarina -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-robotica-submarina.jpg" alt="Servicio de Robótica Submarina" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-robot"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Servicio de Robótica Submarina</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Servicio integral de robótica submarina aplicada a la industria salmonera y empresas públicas y privadas. Filmaciones en ultra alta definición e inspecciones estructurales seguras.</p>
+                                <button class="btn-service-details" data-service="robotica_general">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Arriendo de Equipos y Capacitaciones -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-arriendo-capacitacion.jpg" alt="Arriendo de Equipos y Capacitaciones" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Arriendo de Equipos y Capacitaciones</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Servicio de arriendo de equipos R.O.V a empresas públicas y privadas con prestaciones técnicas. Especialización técnica a través de cursos y talleres de robótica submarina.</p>
+                                <button class="btn-service-details" data-service="arriendo_capacitacion">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Servicio Técnico y Repuestos -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-tecnico-repuestos.jpg" alt="Servicio Técnico y Repuestos" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-gears"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Servicio Técnico y Repuestos</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Contamos con taller y servicio técnico especializado en robótica, electrónica y venta de repuestos para equipos R.O.V Deep Trekker Modelo DTG3 y DTG2, y equipos BlueROV.</p>
+                                <button class="btn-service-details" data-service="servicio_tecnico_repuestos">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO 2: SERVICIOS APLICADOS A LA INDUSTRIA (Slide 6) -->
+                <div class="service-category-block">
+                    <div class="service-category-header">
+                        <div class="service-category-icon"><i class="fa-solid fa-fish"></i></div>
+                        <h2 class="service-category-title">Servicios Aplicados a la <span>Industria Acuícola</span></h2>
+                    </div>
+
+                    <div class="grid-3 card-group-services">
+                        <!-- 4. Extracción Mortalidad e Inspección de Redes -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-extraccion-mortalidad.jpg" alt="Extracción Mortalidad e Inspección de Redes" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-fish-fins"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Extracción Mortalidad e Inspección de Redes</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Equipo técnico especializado en la extracción de mortalidad con ROV y detección oportuna de roturas o anomalías en redes peceras y loberas para resguardo de la biomasa.</p>
+                                <button class="btn-service-details" data-service="extraccion_mortalidad">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 5. Inspección de Fondeos y Fondo Marino -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-inspeccion-fondeos.jpg" alt="Inspección de Fondeos y Fondo Marino" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-anchor"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Inspección de Fondeos y Fondo Marino</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Verificación y certificación técnica de sistemas de fondeo, filmaciones de caracterización de fondo marino, presencia de alimento y localización de restos náufragos.</p>
+                                <button class="btn-service-details" data-service="inspeccion_fondeos">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 6. Reparación de Redes y Apoyo en Cosecha -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-reparacion-redes.jpg" alt="Reparación de Redes y Apoyo en Cosecha" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-toolbox"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Reparación de Redes y Apoyo en Cosecha</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Equipos para la reparación de redes loberas que puedan comprometer la pérdida de biomasa. Personal de apoyo especializado en faenas de cosecha para inspección y verificación in situ.</p>
+                                <button class="btn-service-details" data-service="reparacion_redes">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO 3: TALLER TÉCNICO ESPECIALIZADO (Slide 7) -->
+                <div class="service-category-block">
+                    <div class="service-category-header">
+                        <div class="service-category-icon"><i class="fa-solid fa-wrench"></i></div>
+                        <h2 class="service-category-title">Taller Técnico <span>Especializado Multimarca</span></h2>
+                    </div>
+
+                    <div class="grid-3 card-group-services">
+                        <!-- 7. Identificación de Fallas -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-identificacion-fallas.jpg" alt="Identificación de Fallas" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Identificación y Diagnóstico de Fallas</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Equipo técnico especializado en la búsqueda y diagnóstico certero de fallas comunes y problemas electrónicos en Equipos Deep Trekker y BlueROV.</p>
+                                <button class="btn-service-details" data-service="identificacion_fallas">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 8. Reparación de Equipos -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-reparacion-multimarca.jpg" alt="Reparación de Equipos" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Reparación de Equipos</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Contamos con técnicos de amplia experiencia en la reparación integral de equipos Marca Deep Trekker Modelos DTG2 y DTG3, y Marca Blue ROV 6 thruster.</p>
+                                <button class="btn-service-details" data-service="reparacion_multimarca">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 9. Stock de Repuestos -->
+                        <div class="service-card">
+                            <div class="service-card-media">
+                                <img src="assets/service-stock-repuestos.jpg" alt="Stock de Repuestos" class="service-img">
+                                <div class="service-icon-badge"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            </div>
+                            <div class="service-card-body">
+                                <h3>Stock Permanente de Repuestos</h3>
+                                <p class="service-card-ref"><small><em>*imágenes de referencia*</em></small></p>
+                                <p>Mantenemos un stock de repuestos específicos para la reparación oportuna de fallas comunes, ya sea en ROV, controlador o carretes, sin esperas de importación.</p>
+                                <button class="btn-service-details" data-service="stock_repuestos">Saber Más <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modales Dinámicos para Detalles de Servicio -->
+            <div class="modal-overlay" id="service-modal-overlay">
+                <div class="modal-container-glass">
+                    <button class="modal-close-btn" id="modal-close-btn" aria-label="Cerrar modal"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="modal-content-details" id="modal-content-details">
+                        <!-- Llenado dinámico vía JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION CLIENTES & TRAYECTORIA ================= -->
+        <section id="clientes" class="spa-section">
+            <div class="services-hero-banner" style="background-image: linear-gradient(rgba(2, 8, 19, 0.88), rgba(2, 8, 19, 0.95)), url('assets/drone-center.jpg');">
+                <div class="container text-center">
+                    <span class="section-tag"><i class="fa-solid fa-handshake"></i> Confianza y Resultados</span>
+                    <h1 class="page-title">Clientes & Trayectoria</h1>
+                    <p class="page-subtitle max-w-600 margin-auto">Respaldados por las principales empresas productoras de salmón en Chaitén, Hornopirén, Chiloé y Puerto Montt.</p>
+                </div>
+            </div>
+
+            <div class="container section-padding">
+                <!-- Cita Compromiso y Excelencia (Slide 4) -->
+                <div class="client-quote-box">
+                    <p class="client-quote-text">“Porque sabemos lo importante que es contar con un excelente soporte técnico, nuestros equipos están capacitados para contribuir a la cadena de valor de nuestros clientes.”</p>
+                    <span class="client-quote-author">Compromiso y Excelencia — ServiROV SpA</span>
+                </div>
+
+                <!-- Logos oficiales de clientes (Slide 4) -->
+                <div class="client-logos-grid margin-bottom-50">
+                    <div class="client-logo-card">
+                        <img src="assets/client-camanchaca.jpg" alt="Salmones Camanchaca" title="Salmones Camanchaca">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-mowi.png" alt="MOWI" title="MOWI">
+                    </div>
+                    <div class="client-logo-card dark-card">
+                        <img src="assets/client-salmones-aysen.jpg" alt="Salmones Aysén" title="Salmones Aysén">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-marine-farm.jpg" alt="Marine Farm" title="Marine Farm">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-steen-hansen.png" alt="Steen-Hansen" title="Steen-Hansen">
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="assets/client-purranque.png" alt="Municipalidad de Purranque" title="Municipalidad de Purranque">
+                    </div>
+                </div>
+
+                <!-- Trayectoria Geográfica por Empresa (Slide 9) -->
+                <div class="margin-top-50">
+                    <div class="text-center max-w-700 margin-auto-bottom-50">
+                        <span class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Cobertura y Experiencia</span>
+                        <h2 class="section-title">Trayectoria Comprobada en Centros de Cultivo</h2>
+                        <p class="section-desc">Detalle de operaciones continuas ejecutadas en diversas zonas de la Patagonia chilena desde el año 2018.</p>
+                    </div>
+
+                    <div class="trajectory-grid">
+                        <!-- Salmones Camanchaca -->
+                        <div class="trajectory-card">
+                            <div class="trajectory-header">
+                                <h3 class="trajectory-client-name">Salmones Camanchaca</h3>
+                                <span class="trajectory-period">2018 — A la Fecha</span>
+                            </div>
+                            <div class="trajectory-zones">
+                                <i class="fa-solid fa-location-dot"></i> Chaitén, Hornopirén y Chiloé
+                            </div>
+                            <p class="trajectory-desc">Desde el año 2018 prestando servicios ininterrumpidos de robótica submarina. Servicios de extracción de mortalidad, inspección minuciosa de redes y certificación de fondeos sin registrar fallas de servicio.</p>
+                            <div class="trajectory-tags">
+                                <span class="trajectory-tag"><i class="fa-solid fa-fish"></i> Extracción Mortalidad</span>
+                                <span class="trajectory-tag"><i class="fa-solid fa-network-wired"></i> Redes</span>
+                                <span class="trajectory-tag"><i class="fa-solid fa-anchor"></i> Certificación Fondeos</span>
+                            </div>
+                        </div>
+
+                        <!-- Salmones Aysén -->
+                        <div class="trajectory-card">
+                            <div class="trajectory-header">
+                                <h3 class="trajectory-client-name">Salmones Aysén</h3>
+                                <span class="trajectory-period">2024 — A la Fecha</span>
+                            </div>
+                            <div class="trajectory-zones">
+                                <i class="fa-solid fa-location-dot"></i> Hornopirén y Puerto Montt
+                            </div>
+                            <p class="trajectory-desc">Prestando servicios especializados de extracción de mortalidad e inspección submarina de redes peceras y loberas en centros de cultivo en las áreas de Hornopirén y Puerto Montt.</p>
+                            <div class="trajectory-tags">
+                                <span class="trajectory-tag"><i class="fa-solid fa-fish"></i> Extracción Mortalidad</span>
+                                <span class="trajectory-tag"><i class="fa-solid fa-video"></i> Inspección Redes</span>
+                                <span class="trajectory-tag"><i class="fa-solid fa-bolt"></i> Rápida Respuesta</span>
+                            </div>
+                        </div>
+
+                        <!-- Mowi Chile -->
+                        <div class="trajectory-card">
+                            <div class="trajectory-header">
+                                <h3 class="trajectory-client-name">Mowi Chile</h3>
+                                <span class="trajectory-period">2022 — 2025</span>
+                            </div>
+                            <div class="trajectory-zones">
+                                <i class="fa-solid fa-location-dot"></i> Hornopirén y Chiloé
+                            </div>
+                            <p class="trajectory-desc">Prestando servicios de extracción de mortalidad e inspección técnica de redes en centros de alta producción acuícola en las áreas de Hornopirén y el Archipiélago de Chiloé.</p>
+                            <div class="trajectory-tags">
+                                <span class="trajectory-tag"><i class="fa-solid fa-fish"></i> Extracción Mortalidad</span>
+                                <span class="trajectory-tag"><i class="fa-solid fa-shield-halved"></i> Bioseguridad</span>
+                                <span class="trajectory-tag"><i class="fa-solid fa-clock-rotate-left"></i> Continuidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase con enlace a SalmonExpert y Drive -->
+                <div class="operations-showcase margin-top-50">
+                    <div class="grid-2 bg-glass-card rounded-24 overflow-hidden border-glass items-center">
+                        <div class="ops-images-collage">
+                            <div class="ops-img-wrap">
+                                <img src="assets/drone-center.jpg" alt="Centro Acuícola ServiROV" class="collage-img img-responsive">
+                            </div>
+                            <div class="ops-img-wrap">
+                                <img src="assets/rov-operator-back.jpg" alt="Operaciones ROV Terreno" class="collage-img img-responsive">
+                            </div>
+                        </div>
+                        <div class="ops-text-column section-padding">
+                            <span class="badge-mini"><i class="fa-solid fa-certificate"></i> Reconocimiento Regional</span>
+                            <h3>Liderazgo Comprobado en la Salmonicultura</h3>
+                            <p>Nuestra trayectoria ha sido destacada en medios especializados de la industria acuícola por impulsar el emprendimiento tecnológico regional y generar empleo local calificado en Hualaihué y Puerto Montt.</p>
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+                                <a href="https://www.salmonexpert.cl/acuicola-chile-emprendimiento/boom-de-los-rovs-acuicolas-incentiva-el-emprendimiento-regional/1187825" target="_blank" rel="noopener noreferrer" class="btn-link" id="link-salmonexpert-clients">
+                                    <i class="fa-solid fa-newspaper"></i> Leer reportaje en SalmonExpert <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <a href="https://drive.google.com/drive/folders/179WVlxh1z3godj0Ebb6j7oyqIke-4LV5?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-link" style="color: #93c5fd;">
+                                    <i class="fa-brands fa-google-drive"></i> Acceder a carpeta de videos operativos <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= SECTION NOSOTROS ================= -->
+        <section id="nosotros" class="spa-section">
+            <div class="services-hero-banner" style="background-image: linear-gradient(rgba(2, 8, 19, 0.88), rgba(2, 8, 19, 0.95)), url('assets/ocean-aerial.jpg');">
+                <div class="container text-center">
+                    <span class="section-tag"><i class="fa-solid fa-users"></i> Identidad Corporativa</span>
+                    <h1 class="page-title">Nosotros</h1>
+                    <p class="page-subtitle max-w-600 margin-auto">Valores corporativos, liderazgo ejecutivo y elementos de confianza que respaldan nuestra excelencia operacional.</p>
+                </div>
+            </div>
+
+            <!-- Liderazgo Ejecutivo (Slide 1) -->
+            <div class="container section-padding" style="padding-bottom: 20px;">
+                <div class="leadership-banner">
+                    <div class="leadership-content">
+                        <span class="leadership-tag"><i class="fa-solid fa-user-tie"></i> Dirección General</span>
+                        <h2 class="leadership-name">Alvaro Gabriel Mansilla Ojeda</h2>
+                        <p class="leadership-title">Gerente General — Ingeniero Industrial</p>
+                        <p class="leadership-desc">Lidera la visión estratégica y la gestión operativa de ServiROV SpA. Con sólida formación en ingeniería y amplia trayectoria en la industria acuícola del sur de Chile, impulsa la continua modernización tecnológica de los equipos submarinos, la rigurosidad en los estándares de seguridad y la excelencia ininterrumpida del servicio a los centros de cultivo.</p>
+                    </div>
+                    <div class="leadership-badge-box">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        <span>Ingeniería & Liderazgo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Misión (Slide 3) -->
+            <div class="container section-padding" style="padding-top: 40px; padding-bottom: 40px;">
+                <div class="grid-2 items-center">
+                    <div class="nosotros-image-wrap">
+                        <div class="border-glass-radius rounded-24 overflow-hidden">
+                            <img src="assets/drone-center.jpg" alt="Misión Operativa ServiROV" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="nosotros-text-wrap">
+                        <span class="section-tag"><i class="fa-solid fa-bullseye"></i> Propósito</span>
+                        <h2 class="section-title">Nuestra Misión</h2>
+                        <p class="section-desc" style="font-size: 16px; line-height: 1.7;">Proveer servicios de alto estándar a la industria salmonera, aportando soluciones eficientes y confiables, respaldadas por nuestra experiencia en acuicultura y un firme compromiso con la continuidad y optimización de sus procesos productivos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visión (Slide 3) -->
+            <div class="dark-banner section-padding">
+                <div class="container">
+                    <div class="grid-2 items-center reverse-column">
+                        <div class="nosotros-text-wrap">
+                            <span class="section-tag"><i class="fa-solid fa-eye"></i> Horizonte</span>
+                            <h2 class="section-title">Nuestra Visión</h2>
+                            <p class="section-desc" style="font-size: 16px; line-height: 1.7;">Posicionar a ServiROV SpA como una empresa referente en servicios submarinos para la industria salmonera, reconocida por su excelencia operativa, innovación tecnológica y compromiso con la seguridad, aportando valor sostenible a sus áreas productivas.</p>
+                        </div>
+                        <div class="nosotros-image-wrap">
+                            <div class="border-glass-radius rounded-24 overflow-hidden">
+                                <img src="assets/ocean-aerial.jpg" alt="Visión Operaciones Submarinas" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valores (Slide 3) -->
+            <div class="container section-padding">
+                <div class="text-center max-w-700 margin-auto-bottom-50">
+                    <span class="section-tag"><i class="fa-solid fa-gem"></i> Cimientos Éticos</span>
+                    <h2 class="section-title">Nuestros Valores</h2>
+                    <p class="section-desc">Pilares fundamentales que rigen cada una de nuestras intervenciones submarinas y relaciones humanas.</p>
+                </div>
+
+                <div class="grid-3">
+                    <!-- Valor 1 -->
+                    <div class="critical-card">
+                        <div class="critical-icon-wrap" style="color: var(--accent-secondary);">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3>Respeto, Responsabilidad y Buena Convivencia</h3>
+                        <p>Nuestra empresa se fundamenta en el respeto, la responsabilidad y la buena convivencia, promoviendo un ambiente laboral colaborativo y en estricto cumplimiento de la normativa legal y marítima vigente.</p>
+                    </div>
+
+                    <!-- Valor 2 -->
+                    <div class="critical-card">
+                        <div class="critical-icon-wrap" style="color: var(--text-accent);">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3>Desarrollo del Talento y la Innovación</h3>
+                        <p>Fomentamos el desarrollo del talento, el trabajo en equipo y la innovación constante, impulsando ideas y soluciones de ingeniería que nos permitan mejorar continuamente en cada ciclo productivo.</p>
+                    </div>
+
+                    <!-- Valor 3 -->
+                    <div class="critical-card">
+                        <div class="critical-icon-wrap" style="color: #60a5fa;">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h3>Crecimiento Sustentable y Medio Ambiente</h3>
+                        <p>Nos comprometemos con un crecimiento sustentable, actuando de manera rigurosamente responsable con el medio ambiente marino de la Patagonia y con las comunidades de nuestro entorno.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elementos de Confianza y Respaldo Institucional (Slide 10) -->
+            <div class="dark-banner section-padding" style="background: linear-gradient(180deg, rgba(2, 8, 19, 0.98) 0%, rgba(8, 25, 51, 0.9) 100%);">
+                <div class="container">
+                    <div class="text-center max-w-700 margin-auto-bottom-50">
+                        <span class="section-tag"><i class="fa-solid fa-shield-halved"></i> Garantías Operacionales</span>
+                        <h2 class="section-title">Elementos de Confianza</h2>
+                        <p class="section-desc">Contamos con todas las coberturas, seguros y certificaciones exigidas por las principales compañías de la industria.</p>
+                    </div>
+
+                    <div class="trust-grid">
+                        <!-- 1. Seguro Responsabilidad Civil -->
+                        <div class="trust-card">
+                            <div class="trust-icon-box"><i class="fa-solid fa-file-shield"></i></div>
+                            <div class="trust-body">
+                                <h4>Seguro de Responsabilidad Civil</h4>
+                                <p>Contamos con póliza vigente de seguro de responsabilidad civil para salvaguardar cualquier contingencia operacional en faena.</p>
+                            </div>
+                        </div>
+
+                        <!-- 2. ACHS -->
+                        <div class="trust-card">
+                            <div class="trust-icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
+                            <div class="trust-body">
+                                <h4>Adhesión a la ACHS</h4>
+                                <p>Todos nuestros trabajadores se encuentran adheridos a la Asociación Chilena de Seguridad (ACHS), con protocolos preventivos activos.</p>
+                            </div>
+                        </div>
+
+                        <!-- 3. Obligaciones Previsionales y Laborales -->
+                        <div class="trust-card">
+                            <div class="trust-icon-box"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <div class="trust-body">
+                                <h4>Cumplimiento Laboral & Previsional</h4>
+                                <p>Riguroso y estricto cumplimiento mensual de todas las obligaciones previsionales, laborales y normativas del Estado de Chile.</p>
+                            </div>
+                        </div>
+
+                        <!-- 4. Plataformas y Certificaciones -->
+                        <div class="trust-card">
+                            <div class="trust-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="trust-body">
+                                <h4>Conocimiento de Plataformas</h4>
+                                <p>Operación experta y conocimiento de plataformas de gestión, control de accesos y certificaciones del sector acuícola.</p>
+                            </div>
+                        </div>
+
+                        <!-- 5. Taller Propio en Puerto Montt -->
+                        <div class="trust-card">
+                            <div class="trust-icon-box"><i class="fa-solid fa-warehouse"></i></div>
+                            <div class="trust-body">
+                                <h4>Taller Propio en Puerto Montt</h4>
+                                <p>Dependencias e infraestructura técnica propia en la ciudad de Puerto Montt, equipada con banco de pruebas y laboratorio de ROVs.</p>
+                            </div>
+                        </div>
+
+                        <!-- 6. Interacción Comunitaria y Ambiental -->
+                        <div class="trust-card">
+                            <div class="trust-icon-box"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                            <div class="trust-body">
+                                <h4>Comunidad y Medio Ambiente</h4>
+                                <p>Charlas vocacionales en Liceo Antupirén, cursos de robótica con la OMIL Hualaihué y cooperación activa con la Fundación Bazar Solidario.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION CONTACTO ================= -->
+        <section id="contacto" class="spa-section">
+            <div class="services-hero-banner" style="background-image: linear-gradient(rgba(2, 8, 19, 0.88), rgba(2, 8, 19, 0.95)), url('assets/drone-center.jpg');">
+                <div class="container text-center">
+                    <span class="section-tag"><i class="fa-solid fa-envelope"></i> Conexión Directa</span>
+                    <h1 class="page-title">Contacto</h1>
+                    <p class="page-subtitle max-w-600 margin-auto">Bases operacionales en Hornopirén y Puerto Montt. Respuesta rápida a sus requerimientos en terreno.</p>
+                </div>
+            </div>
+
+            <!-- Mapa Interactivo en Vidrio -->
+            <div class="container margin-top-50">
+                <div class="google-map-glass rounded-24 border-glass overflow-hidden shadow-deep">
+                    <iframe loading="lazy" src="https://maps.google.com/maps?q=El%20Tepual%20N°8,%20Hornopirén&t=m&z=15&output=embed&iwloc=near" title="Ubicación ServiROV en Hornopirén" aria-label="Ubicación de Oficina de ServiROV" class="iframe-map"></iframe>
+                </div>
+            </div>
+
+            <!-- Datos de Contacto y Formulario -->
+            <div class="container section-padding">
+                <div class="grid-2">
+                    <!-- Datos de Contacto -->
+                    <div class="contact-info-column" id="contact-details">
+                        <span class="section-tag"><i class="fa-solid fa-phone-volume"></i> Comunicación Directa</span>
+                        <h2 class="section-title">Centros de Operaciones</h2>
+                        <p class="section-desc">¿Tienes un requerimiento de robótica submarina, extracción de mortalidad, certificación de fondeos o requieres reparación técnica de ROVs? Contáctanos directamente.</p>
+                        
+                        <div class="contact-methods-list">
+                            <!-- Fono -->
+                            <div class="contact-method-card bg-glass border-glass rounded-16">
+                                <div class="method-icon-wrap"><i class="fa-solid fa-phone"></i></div>
+                                <div class="method-body">
+                                    <span class="method-lbl">Llámanos / WhatsApp</span>
+                                    <a href="tel:+56996299010" class="method-val">+56 9 9629 9010</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Correo -->
+                            <div class="contact-method-card bg-glass border-glass rounded-16">
+                                <div class="method-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="method-body">
+                                    <span class="method-lbl">Envíanos un correo</span>
+                                    <a href="mailto:contacto@servirov.cl" class="method-val">contacto@servirov.cl</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Base Hornopirén -->
+                            <div class="contact-method-card bg-glass border-glass rounded-16">
+                                <div class="method-icon-wrap"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="method-body">
+                                    <span class="method-lbl">Base Operacional Hornopirén</span>
+                                    <p class="method-val-text">El Tepual N°8, Hornopirén, Comuna de Hualaihué.</p>
+                                </div>
+                            </div>
+
+                            <!-- Base Puerto Montt -->
+                            <div class="contact-method-card bg-glass border-glass rounded-16">
+                                <div class="method-icon-wrap"><i class="fa-solid fa-warehouse"></i></div>
+                                <div class="method-body">
+                                    <span class="method-lbl">Taller Técnico Especializado</span>
+                                    <p class="method-val-text">Dependencias con taller propio en la ciudad de Puerto Montt.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enlaces Multimedia -->
+                        <div class="margin-top-30">
+                            <h4 style="font-family: var(--font-headings); font-size: 16px; margin-bottom: 12px; color: #ffffff;"><i class="fa-solid fa-photo-film text-accent"></i> Recursos Audiovisuales:</h4>
+                            <a href="https://drive.google.com/drive/folders/179WVlxh1z3godj0Ebb6j7oyqIke-4LV5?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-link" style="display: inline-flex; align-items: center; gap: 8px; color: #93c5fd;">
+                                <i class="fa-brands fa-google-drive"></i> Carpeta de Videos en Google Drive <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Contacto -->
+                    <div class="contact-form-column" id="contact-form-container">
+                        <div class="bg-glass-card border-glass rounded-24 shadow-deep p-40">
+                            <h3>Cotizar Servicio o Solicitar Soporte</h3>
+                            <p class="form-intro-desc text-14 opacity-80 margin-bottom-30">Completa el siguiente formulario y un ingeniero de operaciones se contactará contigo a la brevedad.</p>
+                            
+                            <form id="contact-form-element" novalidate>
+                                <!-- Nombre -->
+                                <div class="form-group-custom">
+                                    <input type="text" id="form-name" required placeholder=" ">
+                                    <label for="form-name">Nombre Completo</label>
+                                    <span class="input-error-msg">Por favor ingresa tu nombre</span>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group-custom">
+                                    <input type="email" id="form-email" required placeholder=" ">
+                                    <label for="form-email">Correo Electrónico</label>
+                                    <span class="input-error-msg">Ingresa un correo electrónico válido</span>
+                                </div>
+
+                                <!-- Teléfono -->
+                                <div class="form-group-custom">
+                                    <input type="tel" id="form-phone" required placeholder=" ">
+                                    <label for="form-phone">Teléfono / WhatsApp</label>
+                                    <span class="input-error-msg">Por favor ingresa tu número telefónico</span>
+                                </div>
+
+                                <!-- Selector de Servicio -->
+                                <div class="form-group-custom" style="margin-bottom: 24px;">
+                                    <select id="form-service" style="width: 100%; padding: 14px 16px; border-radius: 12px; background: rgba(8, 25, 51, 0.8); border: 1px solid var(--glass-border); color: #ffffff; font-family: var(--font-body); font-size: 14px; outline: none;">
+                                        <option value="">Selecciona el Servicio de Interés...</option>
+                                        <option value="robotica">Servicio de Robótica Submarina</option>
+                                        <option value="extraccion">Extracción Mortalidad e Inspección de Redes</option>
+                                        <option value="fondeos">Inspección de Fondeos y Fondo Marino</option>
+                                        <option value="reparacion_redes">Reparación de Redes y Apoyo en Cosecha</option>
+                                        <option value="taller">Taller Técnico: Reparación ROVs y Diagnóstico</option>
+                                        <option value="repuestos">Venta y Stock de Repuestos ROV</option>
+                                        <option value="arriendo">Arriendo de Equipos y Capacitaciones</option>
+                                    </select>
+                                </div>
+
+                                <!-- Mensaje -->
+                                <div class="form-group-custom">
+                                    <textarea id="form-message" required rows="4" placeholder=" "></textarea>
+                                    <label for="form-message">Detalles del Requerimiento</label>
+                                    <span class="input-error-msg">Por favor escribe tu mensaje</span>
+                                </div>
+
+                                <button type="submit" class="btn-submit-form" id="btn-submit-contact">
+                                    <span class="btn-text">Enviar Mensaje <i class="fa-solid fa-paper-plane"></i></span>
+                                    <span class="btn-spinner"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feedback Modal al enviar formulario -->
+            <div class="modal-overlay" id="feedback-modal-overlay">
+                <div class="modal-container-glass feedback-modal">
+                    <div class="feedback-success-animation">
+                        <div class="success-icon-ring"></div>
+                        <div class="success-icon-checkmark"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <h2>¡Mensaje Enviado con Éxito!</h2>
+                    <p>Muchas gracias por comunicarte con ServiROV SpA. Tu solicitud de servicio ha sido ingresada en nuestro centro de operaciones y te contactaremos en un momento.</p>
+                    <button class="btn-primary" id="btn-feedback-close">Entendido</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Premium -->
+    <footer id="main-footer">
+        <div class="container footer-content-padding">
+            <div class="grid-3 footer-grid">
+                <!-- Columna Logo y Descripción -->
+                <div class="footer-col" id="footer-col-logo">
+                    <a href="#inicio" class="logo-link margin-bottom-20 block">
+                        <img src="assets/logo-servirov-white.png" alt="ServiROV Servicios Acuícolas" class="logo-img footer-logo-img">
+                    </a>
+                    <p class="footer-desc">ServiROV Servicios Acuícolas SpA. Líderes en robótica submarina (ROVs), extracción de mortalidad, inspección de redes y fondeos, y taller técnico multimarca en la Región de Los Lagos.</p>
+                    <div class="footer-social-links">
+                        <a href="https://web.facebook.com/profile.php?id=100063456369725" target="_blank" rel="noopener noreferrer" aria-label="Facebook ServiROV" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/56996299010" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ServiROV" class="social-icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://drive.google.com/drive/folders/179WVlxh1z3godj0Ebb6j7oyqIke-4LV5?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Videos en Google Drive" class="social-icon-btn" title="Videos Operativos en Drive"><i class="fa-brands fa-google-drive"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna Enlaces -->
+                <div class="footer-col" id="footer-col-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio" data-tab="inicio"><i class="fa-solid fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#servicios" data-tab="servicios"><i class="fa-solid fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="#clientes" data-tab="clientes"><i class="fa-solid fa-chevron-right"></i> Clientes & Trayectoria</a></li>
+                        <li><a href="#nosotros" data-tab="nosotros"><i class="fa-solid fa-chevron-right"></i> Nosotros</a></li>
+                        <li><a href="#contacto" data-tab="contacto"><i class="fa-solid fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna Contacto Rápido -->
+                <div class="footer-col" id="footer-col-contact">
+                    <h4 class="footer-title">Contacto Rápido</h4>
+                    <p class="footer-contact-item"><i class="fa-solid fa-phone text-accent"></i> +56 9 9629 9010</p>
+                    <p class="footer-contact-item"><i class="fa-solid fa-envelope text-accent"></i> contacto@servirov.cl</p>
+                    <p class="footer-contact-item"><i class="fa-solid fa-location-dot text-accent"></i> El Tepual N°8, Hornopirén</p>
+                    <p class="footer-contact-item"><i class="fa-solid fa-warehouse text-accent"></i> Taller Propio en Puerto Montt</p>
+                </div>
+            </div>
+            
+            <div class="footer-copyright border-top border-glass margin-top-45 padding-top-25 text-center text-13 opacity-70">
+                <p>Copyright © 2026 ServiROV Servicios Acuícolas SpA. Todos los derechos reservados. | Gerencia General: Alvaro Gabriel Mansilla Ojeda.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Acciones Flotantes -->
+    
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/56996299010" class="whatsapp-floating-btn" target="_blank" rel="noopener noreferrer" aria-label="Contacto directo por WhatsApp" id="floating-whatsapp">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.554 4.189 1.604 6.012L0 24l6.117-1.605a11.803 11.803 0 005.925 1.586h.005c6.635 0 12.033-5.396 12.036-12.03a11.82 11.82 0 00-3.617-8.53z"/>
+        </svg>
+        <span class="whatsapp-tooltip">¿En qué te ayudamos?</span>
+    </a>
+
+    <!-- Botón Volver Arriba -->
+    <button class="scroll-to-top-btn" id="btn-scroll-to-top" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom Script -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
